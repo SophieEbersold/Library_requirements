@@ -151,7 +151,7 @@ NOTE: This section explains why the project is needed, recalls the business cont
  access 
 // to facilitate library management and book borrowing.
 
-/`G.1.{counter:g1}` The product will work as a complete user interface
+`G.1.{counter:g1}` The product will work as a complete user interface
 // for library management process and library usage from patrons.
 
 [[g1-purpose]]
@@ -161,11 +161,9 @@ NOTE: This section explains why the project is needed, recalls the business cont
 [[g1-maingoal]]
 `G.1.{counter:g1}` The LMS manages book borrowing.
 
-
 //[[g1-Internet]]
-G.1.{counter:g1}` The system provides books catalogue and information to patrons and helps them decide on the books to borrow from the library.
+`G.1.{counter:g1}` The system provides books catalogue and information to patrons and helps them decide on the books to borrow from the library.
 
-// [[g1-Internet]]
 `G.1.{counter:g1}` The system provides reports to librarians and helps them to manage late loans.
 
 `G.1.{counter:g1}` The LMS is running 24 hours a day.
@@ -186,11 +184,11 @@ https://github.com/ddd-by-examples/library?ref=hackernoon.com#domain-description
 
 === G.3 Expected benefits
 //[[g3-benefits]]
-//`G.3.{counter:g3}` The expected benefits are easier access to library services for both
+// `G.3.{counter:g3}` The expected benefits are easier access to library services for both
 // librarians and patrons.
 
 [[g3-Benefit]]
- `G.3.{counter:g3}` The LMS product is basically updating the manual library system into an internet-based application. 
+`G.3.{counter:g3}` The LMS product is basically updating a manual library system into an internet-based application. 
 
 [[g3-access]]
 `G.3.{counter:g3}` The system should enable its users to access basic library functions remotely, 24-hours a day, according to their role in the system.
@@ -284,7 +282,7 @@ any information related to the book.
 
 === G.6 Limitations and exclusions
 [[g6-limitations]]
-`G.6.{counter:g6}` Adapatbility is not supported by the LMS - TBD adaptation for non seeing people 
+`G.6.{counter:g6}` Accessibility is not supported by the LMS
 
 [[g6-limitations]]
 `G.6.{counter:g6}` The LMS only deals with book management and does not cover human
@@ -356,6 +354,7 @@ NOTE: We list the elements of the environment that may affect or be affected by 
 === E.3 Constraints
 NOTE: This section will contain the obligations and limits imposed on the project and the system by the environment. 
 It describes all the important business rules that the development of the LMS will have to take into account. Some of them are given below.
+
 NOTE: Hold duration was expressed in days but as "day" can be ambigus and subject to interpretation, we choose to express it in hours.
 
 [arabic]
@@ -369,18 +368,18 @@ unavailable.
 
 `E.3.{counter:e3}` After a book return is registered, the book becomes available.
 
-// `E.3.{counter:e3}` When the book is checked out,the hold becomes completed and the returning process starts.
+`E.3.{counter:e3}` When a book is checked out, the hold becomes completed and the returning process starts.
 
 `E.3.{counter:e3}` A patron can place an hold on a book if the book is available.
 
 `E.3.{counter:e3}` Overdue checkouts and expired holds are checked daily.
 
-// `E.3.{counter:e3}` Overdue checkouts are registered.
+`E.3.{counter:e3}` Overdue checkouts are registered.
 
 `E.3.{counter:e3}` Overdue checkout results in fees for the concerned patron and a
 penalty on his/her file.
 
-// `E.3.{counter:e3}` If the checkout is overdue, it is being unregistered as soon as the book is returned.
+`E.3.{counter:e3}` If a checkout is overdue, it is being unregistered as soon as the book is returned.
 
 `E.3.{counter:e3}` In the moment of returning a book, the process of Fees application starts.
 
@@ -389,7 +388,7 @@ penalty on his/her file.
 
 `E.3.{counter:e3}` Hold duration is maximum 120 hours.
 
-// `E.3.{counter:e3}` Borrowing duration is maximum 60 days.
+`E.3.{counter:e3}` Borrowing duration is maximum 60 days.
 
 `E.3.{counter:e3}` The maximum number of books placed on hold by a single user is 3.
 
@@ -397,7 +396,7 @@ penalty on his/her file.
 
 `E.3.{counter:e3}` Late borrowing fees are €5 per day.
 
-// `E.3.{counter:e3}` The Maximum number of penalties is 3.
+`E.3.{counter:e3}` The Maximum number of penalties is 3.
 
 
 === E.4 Assumptions
@@ -418,9 +417,7 @@ NOTE: Invariants describe properties of the environment that the LMS’s operati
 [arabic]
 [[e6-Invariants]]
 `E.6.{counter:e6}` The status of a book is: available, on hold, borrowed, due, returned.
-[[e6-Invariants]]
-`E.6.{counter:e6}` A book on hold is unavailable until the hold period has expired or
-until the user who placed it on hold has cancelled it.
+
 
 ===  +
 
@@ -435,13 +432,17 @@ NOTE: The components of the LMS described here express the overall structure of 
 
 `S.1.1.{counter:s1.1}`  The Books management component concerns the books and includes books description.
 
-`S.1.1. {counter:s1.1}` Books management includes catalog generation with the number of copies available for each book, searching for books and displaying the list of books.
+`S.1.1.{counter:s1.1}` Books management includes catalog generation with the number of copies available for each book, searching for books and displaying the list of books.
 
 `S.1.1.{counter:s1.1}` A meta book is described by its title, author, ISBN number, number of
 copies, and number of available copies.
 
 `S.1.1.{counter:s1.1}`  A book is a copy of a metabook (an instance), with a copy number and an
 availability status.
+
+[[e6-Invariants]]
+`S.1.1.{counter:s1.1}` A book on hold is unavailable until the hold period has expired or
+until the patron who placed it on hold has cancelled it.
 
 
 [[S1-ComponentsPatrons]]
@@ -486,6 +487,7 @@ and when it is due to be returned.
 
 === S.2 Functionality 
 NOTE: We list here some of the functional and non-functional properties describing the behaviors of the system's components.
+
 [[S2-Functionality]]
 `S.2.{counter:s2}` The Functional Requirements for the Library Management System are:
 
@@ -499,11 +501,9 @@ NOTE: We list here some of the functional and non-functional properties describi
 
 `S.2.1.{counter:s2.1}` Ability to display a list of all books in the library
 
-//`S.2.1.{counter:s2.1}` 
-// Ability to store and retrieve information about library patrons, including their name and ID number
+`S.2.1.{counter:s2.1}` Ability to store and retrieve information about library patrons, including their name and ID number
 
-//`S.2.1.{counter:s2.1}` 
-// Ability to track which books are currently checked out and when they are due to be returned
+`S.2.1.{counter:s2.1}` Ability to track which books are currently checked out and when they are due to be returned
 
 `S.2.1.{counter:s2.1}`
 Ability to generate reports on library usage, holds and checkouts
@@ -522,11 +522,9 @@ of library patrons and their information
 
 `S.2.2.{counter:s2.2}` Ability to handle multiple users and concurrent access to the system
 
-//`S.2.2.{counter:s2.2}`
-//  Compliance with relevant laws and regulations regarding library management and data privacy
+`S.2.2.{counter:s2.2}`  Compliance with relevant laws and regulations regarding library management and data privacy
 
-//`S.2.2.{counter:s2.2}`
-// Regular updates and maintenance to ensure the system remains functional and secure over time.
+`S.2.2.{counter:s2.2}` Regular updates and maintenance to ensure the system remains functional and secure over time.
 
 === S.3 Interfaces 
 NOTE: This section lists user interfaces and program interfaces (APIs) handling the functionality and making them available.

@@ -1,0 +1,756 @@
+= Specification of a Library Management System (LMS) using the PEGS approach
+
+Version: 2023-08-23
+
+*Changelog*
+
+[width="100%",cols="19%,81%",]
+|===
+|2023-08-23 |First proposition – by SE
+
+|2023-08-24 |Change version number, correct some typos, add some
+requirements in P.3 and P.4 to be consistent with the _Minimum
+Requirements Outcomes Principle_, put it in a Google doc form to ease
+collaboration – by JMB
+
+|2023-10-04 |Change numbering, correct some typos - add explanations and reduce the number of requirements specified here, as they constitue examples of what has to be contained in each section, replace occurences of members by patrons to avoid ambiguities - by SE
+
+|2023-10-11 |Add numbering, correct some typos - add explanations and reduce the number of requirements specified here, as they constitue examples of what has to be contained in each section, add in each sub-section an explanation of how the sub-section was completed - by SE
+
+|2023-10-19| Correct numbering - move some requirements from E section to S section - move some requirements from E.4 Asumptions to E.3 Constraints - add new asumption in E.4. - better specified some requirements - by SE
+
+| |
+
+| |
+|===
+== Context
+
+As an attempt to illustrate the general purpose of {method} and to validate it on business systems, we have written the requirements for an online library management system.
+In the following we will consider the Library Management System as being the system under specification and the system to develop. 
+The Library Management System will also be called LMS in the following of this document.
+
+This document constitutes the requirements books of this system.
+It follows the method presented in the {HandbookPDF}.
+It uses the Asciidoc template available link:{github-io}/templates/asciidoc/book.adoc[here].
+The full version is available on the link:[Requirements Handbook Library Web Site].
+
+In the following, we illustrate and discuss some of our choices, our hesitation, and the benefit of using {method} in that software product.
+
+NOTE: This shows the advantage of having a well-organized set of requirements for developing any new project. The requirements specified in the four PEGS books below were used by a group of 4 students to develop the corresponding OLMS tool.
+
+
+== Content
+
+*link:#content[Content] link:#content[2]*
+
+*link:#section-1[Goals] link:#section-1[4]*
+
+____
+link:#g.7-stakeholders-and-requirements-sources[G.1 Overall context and
+goals] link:#g.7-stakeholders-and-requirements-sources[4]
+
+link:#g.7-stakeholders-and-requirements-sources[G.2 Current situation]
+link:#g.7-stakeholders-and-requirements-sources[4]
+
+link:#g.7-stakeholders-and-requirements-sources[G.3 Expected benefits]
+link:#g.7-stakeholders-and-requirements-sources[4]
+
+link:#g.4-functionality-overview[G.4 Functionality overview]
+link:#g.4-functionality-overview[4]
+
+link:#_yvda2boo29n1[G.5 High-level usage scenarios]
+link:#_yvda2boo29n1[4]
+
+link:#g.7-stakeholders-and-requirements-sources[G.6 Limitations and
+exclusions] link:#g.7-stakeholders-and-requirements-sources[4]
+
+link:#g.7-stakeholders-and-requirements-sources[G.7 Stakeholders and
+requirements sources] link:#g.7-stakeholders-and-requirements-sources[4]
+____
+
+*link:#environment[Environment] link:#environment[5]*
+
+____
+link:#e.1-glossary[E.1 Glossary] link:#e.1-glossary[5]
+
+link:#e.2-components[E.2 Components] link:#e.2-components[5]
+
+link:#_gbu8bf55q8qg[E.3 Constraints] link:#_gbu8bf55q8qg[5]
+
+link:#_uh6k7ev0vtly[E.4 Assumptions] link:#_uh6k7ev0vtly[5]
+
+link:#e.5-effects[E.5 Effects] link:#e.5-effects[5]
+
+link:#e.6-invariants[E.6 Invariants] link:#e.6-invariants[5]
+____
+
+*link:#system[System] link:#system[6]*
+
+____
+link:#_4eykv23wps2i[S.1 Components] link:#_4eykv23wps2i[6]
+
+link:#_kxp308fxmu7n[S.2 Functionality] link:#_kxp308fxmu7n[6]
+
+link:#_oyxu5punrorh[S.3 Interfaces] link:#_oyxu5punrorh[6]
+
+link:#_d0bfytbgximv[S.4 Detailed usage scenarios] link:#_d0bfytbgximv[6]
+
+link:#_c57sg6hqhi8t[S.5 Prioritization] link:#_c57sg6hqhi8t[6]
+
+link:#s.6-verification-and-acceptance-criteria[S.6 Verification and
+acceptance criteria] link:#s.6-verification-and-acceptance-criteria[6]
+____
+
+*link:#project[Project] link:#project[7]*
+
+____
+link:#p.1-roles-and-personnel[P.1 Roles]
+link:#p.1-roles-and-personnel[7]
+
+link:#_uj4hzlixfant[P.2 Personnel characteristics and constraints]
+link:#_uj4hzlixfant[7]
+
+link:#_59zlco3c72j6[P.3 Imposed technical choices]
+link:#_59zlco3c72j6[7]
+
+link:#p.3-schedule-and-milestones[P.4 Tasks and deliverables]
+link:#p.3-schedule-and-milestones[7]
+
+link:#_q97pvvljiy17[P.5 Schedule and milestones] link:#_q97pvvljiy17[7]
+
+link:#p.5-required-technology-elements[P.6 Risks and mitigation
+analysis] link:#p.5-required-technology-elements[7]
+
+link:#p.7-requirements-process-and-report[P.7 Requirements process and
+report] link:#p.7-requirements-process-and-report[7]
+____
+
+== Goals
+
+The General Goals of the Online Library Management System are first goals of a Library Management System and can benefit to any library.
+
+A library has a collection of books that its members can borrow. 
+
+The Library Management System can be used by any existing or new library to manage its books,
+books insertion, borrowing, and monitoring.
+
+The Library Management System can work as a powerful library management system for big
+libraries, and can provide a free easy-to-use system for rising
+libraries.
+
+NOTE: In the following, the  Library Management System will also be called LMS
+
+=== G.1 Context and overall objectives
+NOTE: This section explains why the project is needed, recalls the business context and presents the general business objectives. Some of them are listed here (the others are specified in the whole Goal book in link: [Requirements Handbook Library Web Site])
+
+[[g1-audience]]
+`G.1.{counter:g1}` The Library Management System is to be used by Librarians and Patrons of a library.
+
+[[g1-Internet]]
+`G.1.{counter:g1}` The  LMS aims to provide its users with Internet
+ access 
+// to facilitate library management and book borrowing.
+
+/`G.1.{counter:g1}` The product will work as a complete user interface
+// for library management process and library usage from patrons.
+
+[[g1-purpose]]
+`G.1.{counter:g1}` The purpose of the LMS is to provide its users a friendly environment 
+// to maintain the details of books and library patrons.
+
+[[g1-maingoal]]
+`G.1.{counter:g1}` The LMS manages book borrowing.
+
+
+//[[g1-Internet]]
+G.1.{counter:g1}` The system provides books catalogue and information to patrons and helps them decide on the books to borrow from the library.
+
+// [[g1-Internet]]
+`G.1.{counter:g1}` The system provides reports to librarians and helps them to manage late loans.
+
+`G.1.{counter:g1}` The LMS is running 24 hours a day.
+
+`G.1.{counter:g1}` Access to the LMS must be secured.
+
+
+
+
+=== G.2 Current situation
+NOTE: This section describes the current situation, and gives the relations between the LMS and its environment.
+
+`G.2.{counter:g2}` The Library Management System is described in this project, starting
+from scratch, based on manual library management and various public
+resources such as
+https://github.com/ddd-by-examples/library?ref=hackernoon.com#domain-description[Library]footnote:[https://github.com/ddd-by-examples/library?ref=hackernoon.com#domain-description]
+.
+
+=== G.3 Expected benefits
+//[[g3-benefits]]
+//`G.3.{counter:g3}` The expected benefits are easier access to library services for both
+// librarians and patrons.
+
+[[g3-Benefit]]
+ `G.3.{counter:g3}` The LMS product is basically updating the manual library system into an internet-based application. 
+
+[[g3-access]]
+`G.3.{counter:g3}` The system should enable its users to access basic library functions remotely, 24-hours a day, according to their role in the system.
+
+[[g3-help]]
+`G.3.{counter:g3}` The system should provide a catalog, and reports allowing users to improve their use of the library.
+
+[[g3-registration]]
+`G.3.{counter:g3}` Anyone should be able to register by creating his or her own account.
+
+`G.3.{counter:g3}` Friendly user interface, online help and user guide must be sufficient to educate the users on how to use this product without any problems or difficulties
+
+
+=== G.4 Functionality overview
+NOTE: This section gives short overview of the future system. It lists the main functionalities a LMS must provide to its users. It also says what users cannot do.
+
+[[g4-librariansforstockmanagement]]
+`G.4.{counter:g4}` Librarians need to be able to add books, update books status, delete books and receive alerts on overdue returns.
+
+[[g4-librariansforborrowingmanagement]]
+`G.4.{counter:g4}` Librarians are  responsible for registering books checkouts and returns.
+
+[[g4-patronsconsultation]]
+`G.4.{counter:g4}` Patrons should be able to remotely consult the library catalog, put books on hold, know  remaining time for borrowing  and update their personal information. 
+
+[[g4-patrons]]
+`G.4.{counter:g4}` Patrons cannot update their borrowing information.
+
+[[g4-users]]
+`G.4.{counter:g4}` Only registered users should be able to access the system. 
+
+
+=== G.5 High-level usage scenarios
+
+NOTE: The scenarios chosen for appearing here are limited to the main usage patterns and expressed in user terms, independently of the system’s structure. The detailed usage scenarios will appear in the System book (S.4).
+So, we consider here the two kinds of users the LMS has to integrate: Librarians and Patrons.
+
+// [plantuml]
+// ----
+// @startuml
+
+// actor Librarians as l
+// usecase "Insert, modify the state of a book and delete books" as A
+
+// l -> A
+
+// ' G.5.4 Can get the information on any member who has borrowed a book.
+// usecase "G.5.4 get the information on any member" as B
+
+// l -> B
+// @enduml
+// ----
+
+[[g5-authentification]]
+`G.5.{counter:g5}` All users must authenticate themselves before using the system.
+
+[[g5-usersauthentification]]
+`G.5.{counter:g5}` Each user must have his or her correct username and password to enter
+into his or her online account and do actions.
+
+
+==== Librarians: 
+
+
+[[g5-Librarians]]
+`G.5.{counter:g5}` Should be able to insert, modify the state of a book and delete books.
+[[g5-Librarians]]
+`G.5.{counter:g5}` Can get the information of any member who has borrowed a book.
+[[g5-Librarians]]
+`G.5.{counter:g5}`  Add and edit book categories and arrange books by categories.
+[[g5-Librarians]]
+`G.5.{counter:g5}` Add and edit authors and publishers’ information.
+[[g5-Librarians]]
+`G.5.{counter:g5}`  Can send lateness warnings to people who have exceeded deadline date.
+[[g5-Librarians]]
+`G.5.{counter:g5}`  Should enter book checkouts and returns.
+
+==== Patrons: 
+
+[[g5-patrons]]
+`G.5.{counter:g5}` Should be able to subscribe
+[[g5-patrons]]
+`G.5.{counter:g5}` Should be provided with the updated information about the books catalog.
+[[g5-patrons]]
+`G.5.{counter:g5}` Can check their account's information and update it.
+[[g5-patrons]]
+`G.5.{counter:g5}` Have the ability to search through books by subject, title, authors or
+any information related to the book.
+[[g5-patrons]]
+`G.5.{counter:g5}` Can put books on hold
+
+=== G.6 Limitations and exclusions
+[[g6-limitations]]
+`G.6.{counter:g6}` Adapatbility is not supported by the LMS - TBD adaptation for non seeing people 
+
+[[g6-limitations]]
+`G.6.{counter:g6}` The LMS only deals with book management and does not cover human
+resources management.
+
+[[g6-limitations]]
+`G.6.{counter:g6}` The LMS does not support users’ validation.
+
+[[g6-limitations]]
+`G.6.{counter:g6}` Administration of the website is out of scope of the system.
+
+=== G.7 Stakeholders and requirements sources
+
+[width="100%",cols="21%,15%,64%",options="header",]
+|===
+|*Stakeholder* |*Category* |*Comment*
+|Patron |User |Anyone who lend books in the library
+|Librarian |User |Persons responsible for managing books and loans.
+|===
+
+=== Resources:
+
+https://github.com/ddd-by-examples/library?ref=hackernoon.com#domain-description
+
+https://www.codingninjas.com/studio/library/design-a-library-management-system-low-level-design
+
+== Environment
+NOTE: The Environment book describes the application domain and external context in which the LMS will operate. 
+
+=== E.1 Glossary
+[[e1-Glossary]]
+`E.1.{counter:e1}` The definitions of all the vocabularies specific to the LMS are given below.
+
+* *LMS*: Acornym for Library management System
+* *Library*: has a collection of Books, and members which are patrons
+and librarians
+* *Meta Book*: metadata containing title, author, editor, ISBN, number
+of copies
+* *Book*: Copy of a book with a copy number and an availability status
+* *Patron*: Anyone who lend books in the library
+* *Librarian*: library employee
+* *Catalog :* List of library books and their instance availability
+* *Holding*: Place a book on hold
+* *Checkout*: Collecting the book from the library
+* *Return*: Giving the book back to the library
+* *Overdue Checkout*: A checkout is overdue when patron has not given
+the book back until up to the borrowing period.
+* *Daily Sheet with Overdue Checkouts*: A list of overdue checkouts that
+is being checked daily
+* *Daily Sheet with expired holds*: A list of expired holds that is
+being checked daily
+* *Hold Duration*: A time period when a book can be kept on hold
+* *Borrowing Period*: Period during which a book can be borrowed
+
+=== E.2 Components
+
+NOTE: We list the elements of the environment that may affect or be affected by the system and project, that is the login management component to which the system must be interfaced.
+
+[[e2-LoginComponents]]
+`E.2.{counter:e2}` Login management
+
+//[#_gbu8bf55q8qg .anchor]####
+[[e2-Components]]
+`E.2.1.{counter:e2.1}` This component would handle the login of the users (patrons and librarians) and their authentication.
+
+`E.2.1.{counter:e2.1}` It is not dedicated to a library and can be an external module added to the LMS.
+
+
+=== E.3 Constraints
+NOTE: This section will contain the obligations and limits imposed on the project and the system by the environment. 
+It describes all the important business rules that the development of the LMS will have to take into account. Some of them are given below.
+NOTE: Hold duration was expressed in days but as "day" can be ambigus and subject to interpretation, we choose to express it in hours.
+
+[arabic]
+[[e3-borrowings]]
+`E.3.{counter:e3}` A book that has been placed on hold and whose hold is not expired is
+unavailable.
+
+`E.3.{counter:e3}` A book that has been checked out is unavailable.
+
+`E.3.{counter:e3}` When the hold period expired, the book becomes available.
+
+`E.3.{counter:e3}` After a book return is registered, the book becomes available.
+
+// `E.3.{counter:e3}` When the book is checked out,the hold becomes completed and the returning process starts.
+
+`E.3.{counter:e3}` A patron can place an hold on a book if the book is available.
+
+`E.3.{counter:e3}` Overdue checkouts and expired holds are checked daily.
+
+// `E.3.{counter:e3}` Overdue checkouts are registered.
+
+`E.3.{counter:e3}` Overdue checkout results in fees for the concerned patron and a
+penalty on his/her file.
+
+// `E.3.{counter:e3}` If the checkout is overdue, it is being unregistered as soon as the book is returned.
+
+`E.3.{counter:e3}` In the moment of returning a book, the process of Fees application starts.
+
+[[e3-businessRules]]
+`E.3.{counter:e3}` A patron who has been penalized 3 times will be blacklisted by the library and banned from the system for one year.
+
+`E.3.{counter:e3}` Hold duration is maximum 120 hours.
+
+// `E.3.{counter:e3}` Borrowing duration is maximum 60 days.
+
+`E.3.{counter:e3}` The maximum number of books placed on hold by a single user is 3.
+
+`E.3.{counter:e3}` The maximum number of books borrowed by a single user is 5.
+
+`E.3.{counter:e3}` Late borrowing fees are €5 per day.
+
+// `E.3.{counter:e3}` The Maximum number of penalties is 3.
+
+
+=== E.4 Assumptions
+NOTE: Below are some properties of the environment that may be assumed, to facilitate the project and simplify the LMS.
+[[e4-french]]
+`E.4.{counter:e4}` The users can read french.
+
+[[e4-education]]
+`E.4.{counter:e4}` The users are assumed to have basic knowledge of computers and Internet browsing.
+
+
+
+=== E.5 Effects
+NOTE: We have not found there any elements and properties of the environment that the system will affect. 
+
+=== E.6 Invariants
+NOTE: Invariants describe properties of the environment that the LMS’s operation must preserve.
+[arabic]
+[[e6-Invariants]]
+`E.6.{counter:e6}` The status of a book is: available, on hold, borrowed, due, returned.
+[[e6-Invariants]]
+`E.6.{counter:e6}` A book on hold is unavailable until the hold period has expired or
+until the user who placed it on hold has cancelled it.
+
+===  +
+
+== System
+NOTE: The System book refines the Goals by focusing on more detailed requirements about the system under development, mainly its constituents, behaviors and properties.
+
+=== S.1 Components 
+NOTE: The components of the LMS described here express the overall structure of the system.
+
+[[S1-ComponentsBooks]]
+`S.1.{counter:s.1}` Books management
+
+`S.1.1.{counter:s1.1}`  The Books management component concerns the books and includes books description.
+
+`S.1.1. {counter:s1.1}` Books management includes catalog generation with the number of copies available for each book, searching for books and displaying the list of books.
+
+`S.1.1.{counter:s1.1}` A meta book is described by its title, author, ISBN number, number of
+copies, and number of available copies.
+
+`S.1.1.{counter:s1.1}`  A book is a copy of a metabook (an instance), with a copy number and an
+availability status.
+
+
+[[S1-ComponentsPatrons]]
+`S.1.{counter:s.1}` Patrons management
+
+`S.1.2.{counter:s1.2}`  The Patrons management component includes patrons’ identification and description, with
+their first name, family name, ID number, address, penalties.
+
+`S.1.2.{counter:s1.2}`  The Patrons management component includes the number of books placed on hold and the number of
+borrowed books.
+
+`S.1.2.{counter:s1.2}` A patron with 3 penalties is removed from the library and is not be able to subscribe for 1 year.
+
+`S.1.2.{counter:s1.2}` The Patrons management component includes functions allowing patrons to modify their personal information 
+
+`S.1.2.{counter:s1.2}` The Patrons management component includes functions allowing librarians to add penalties to patrons's files.
+
+
+[[S1-ComponentsHolds]]
+`S.1.{counter:s.1}` Holds management
+
+`S.1.3.{counter:s1.3}` The Holds management component would handle the holds.
+
+`S.1.3.{counter:s1.3}` The Holds management component includes functions to place books on hold, cancel holds,
+check holds expirations and generate daily sheets
+
+`S.1.3.{counter:s1.3}` The Holds management component would store information about which patron has placed which book on
+hold and the date of the holding
+
+
+[[S1-ComponentsCheckouts]]
+`S.1.{counter:s1}` Checkouts management
+
+`S.1.4.{counter:s1.4}`  The Checkouts management component would handle the checking out and returning of books. 
+
+`S.1.4.{counter:s1.4}` Checkouts management includes functions for managing the borrowing and the return
+of books.
+
+`S.1.4.{counter:s1.4}`  The Checkouts management component would store information about which patron has checked out which book
+and when it is due to be returned.
+
+
+=== S.2 Functionality 
+NOTE: We list here some of the functional and non-functional properties describing the behaviors of the system's components.
+[[S2-Functionality]]
+`S.2.{counter:s2}` The Functional Requirements for the Library Management System are:
+
+`S.2.1.{counter:s2.1}` Ability to add and remove books from the library
+
+`S.2.1.{counter:s2.1}` Ability to search for books in the library by title, author, or ISBN
+
+`S.2.1.{counter:s2.1}` Ability to place hold on books
+
+`S.2.1.{counter:s2.1}` Ability to check out and return books
+
+`S.2.1.{counter:s2.1}` Ability to display a list of all books in the library
+
+//`S.2.1.{counter:s2.1}` 
+// Ability to store and retrieve information about library patrons, including their name and ID number
+
+//`S.2.1.{counter:s2.1}` 
+// Ability to track which books are currently checked out and when they are due to be returned
+
+`S.2.1.{counter:s2.1}`
+Ability to generate reports on library usage, holds and checkouts
+
+[[S2-NonFunctionality]]
+`S.2.{counter:s2}` The Non-Functional Requirements for the Library Management System are:
+
+`S.2.2.{counter:s2.2}` User-friendly interface for easy navigation and use
+
+`S.2.2.{counter:s2.2}` High performance and scalability to handle large amounts of data
+
+`S.2.2.{counter:s2.2}` Data security and protection to ensure the privacy and confidentiality
+of library patrons and their information
+
+`S.2.2.{counter:s2.2}` Compatibility with various operating systems and devices
+
+`S.2.2.{counter:s2.2}` Ability to handle multiple users and concurrent access to the system
+
+//`S.2.2.{counter:s2.2}`
+//  Compliance with relevant laws and regulations regarding library management and data privacy
+
+//`S.2.2.{counter:s2.2}`
+// Regular updates and maintenance to ensure the system remains functional and secure over time.
+
+=== S.3 Interfaces 
+NOTE: This section lists user interfaces and program interfaces (APIs) handling the functionality and making them available.
+
+[[S3-Interfaces]]
+`S.3.{counter:s.3}`  Users should be able to access LMS from any device that has Internet browsing capabilities and an Internet connection.
+
+=== S.4 Detailed usage scenarios 
+NOTE: Here are some examples of interactions between the environment (or human users) and the system: use cases and/or user stories.
+
+[[S4-Scenarios_Reserve_a_book]]
+`S.4.{counter:s.4}` Reserve_a_book
+
+[width="100%",cols="50%,50%",]
+|===
+|Name |Reserve_a_book
+
+|Scope |System
+
+|Level |Business_summary
+
+|Primary actor |Patron
+
+|Context of use |A patron wants to place hold on a book so that the book
+is reserved before he picks it up
+
+|Preconditions a|
+The library has a requested book
+
+Patron is logged in to the library system
+
+|Trigger |The patron finds in a library catalogue the book he wants to
+borrow and requests the system to place a hold on this book
+
+|Main success scenario a|
+[arabic]
+. System validates that a hold can be placed
+. The system reserves a book by the patron
+. The system displays the confirmation that the hold is placed
+successfully
+. The system tags the starting date of the hold
+
+|Success guarantee |The book is on hold by the patron
+
+|Extensions a|
+1A. The book is checked out
+
+*The system denies placing hold on the book
+
+*The system displays error message
+
+1B. The book is on hold by another patron
+
+*The system denies placing hold on the book
+
+*The system displays error message
+
+1C. The patron has 3 books on hold 
+
+*The system denies placing hold on the book
+
+*The system displays error message
+
+|Stakeholders and interests a|
+Patron (reserves a book)
+
+Librarian (enforces adherence to library policies)
+
+|===
+
+[[S4-Scenarios_Borrow_a_book]]
+`S.4.{counter:s.4}` Borrow_a_book
+
+[width="100%",cols="50%,50%",]
+|===
+|Name |Borrow_a_book
+
+|Scope |System
+
+|Level |Business summary
+
+|Primary actor |Librarian
+
+|Context of use |The patron wants to check out a book
+
+|[#_c57sg6hqhi8t .anchor]####Preconditions |The book is available
+
+|Trigger |The patron found in the library catalogue the book he wants to
+borrow and requested successfully the system to place a hold on this
+book
+
+|Main success |The system changes the book status to borrowed
+
+|Scenario a|
+The patron checks out the book.
+
+The patron returns the book
+
+|Success guarantee |The patron has borrowed the book and returned it
+within the checkout duration.
+
+|Extensions a|
+A. The hold expires
++
+The system changes the hold status to “expired” and the book becomes
+available
+
+B. The patron canceled the hold
++
+The book status changes to available
+
+C. The patron does not return the book within the maximum check out
+duration
+
+The book status changes to overdue
+
+A penalty is added to the patron's file
+
+The patron returns the book
+
+|Stakeholders and interests |Patron (borrows a book), Librarians -
+register actions of borrowing and return
+|===
+
+=== S.5 Prioritization
+NOTE: We choose to not classify behaviors, interfaces and scenarios according to their degree of criticality, as all of them are equally important for this system
+
+
+
+=== S.6 Verification and acceptance criteria
+// NOTE: In this last section of System Chapter, we specify the conditions under which an implementation will be deemed satisfactory.
+
+
+====  +
+
+== Project
+NOTE: The Project book describes all the constraints and expectations not about the system itself, but about how to develop and produce it. 
+
+=== P.1 Roles and Personnel
+NOTE: We identified the main responsibilities in the LMS project; required project staff and their needed qualifications.
+
+[width="100%",cols="48%,52%",options="header",]
+|===
+|*Project roles* |*Personnel*
+|Project manager |team principal
+|Testers |Library manager
+|Documenters |systems engineers
+|Developers |systems engineers
+|===
+
+[[P.1-Roles]]
+`P.1.{counter:p.1}` The project team includes team principal and three systems engineers
+100% dedicated to the project. 
+[[P.1-Roles]]
+`P.1.{counter:p.1}` The team is composed of 4 students in software
+engineering.
+
+[[P.1-Roles]]
+`P.1.{counter:p.1}` The requirements analysis, software development and testing is performed
+by the team member responsible for the specific software modules
+
+[[P.1-Roles]]
+`P.1.{counter:p.1}` The team has to  plan to test the product with the library manager as
+super user able to switch form one role to another one to ensure the
+correctness and safety of the developed software.
+
+=== P.2 Imposed technical choices.
+NOTE: We made a priori choices of specific tools, hardware, languages as depicted below
+
+[[P.2-Choices]]
+`P.2.{counter:p.2}`  Users may access LMS from any device that has Internet browsing
+capabilities and an Internet connection.
+[[P.2-Choices]]
+`P.2.{counter:p.2}`   Users must authenticate that is have their correct usernames and
+passwords to enter into their online accounts and do actions.
+[[P.2-Choices]]
+`P.2.{counter:p.2}`  The information of all users, books and library must be stored in a
+database that is accessible by the system.
+
+=== P.3 Schedule and milestones
+NOTE:  Following the Minimum Requirements Outcome Principle, we established a ist of tasks to be carried out and their scheduling.
+
+[[P.3-Milestones]]
+`P.3.{counter:p.3}`  The project should provide a first prototype (v.1) on May, 30^th^, 2024.
+
+[[P.3-Milestones]]
+`P.3.{counter:p.3}`  A second milestone is planned for a v.2 with the remaining features, in
+May, 1^st^, 2025
+
+=== P.4 Tasks and deliverables
+NOTE: Details of individual tasks listed under P.3 and their expected outcomes are expressed in this section
+
+[[P.4-Tasks]]
+`P.4.{counter:p.4}`  The tasks and deliverables are listed in the Gantt diagram provided in Appendix XYZ.
+
+=== P.5 Required technology elements
+NOTE: In this section we give external systems that seems necessary to us for building the system, but the choice of the tool is open to the developpers 
+
+[[P.5-Techno]]
+`P.5.{counter:p.5}` MonGoDB for the database.
+[[P.5-Techno]]
+`P.5.{counter:p.5}` MJavaScript for building the web application
+[[P.5-Techno]]
+`P.5.{counter:p.5}` MMaven for the projet management
+[[P.5-Techno]]
+`P.5.{counter:p.5}` The Login management module is not dedicated to a library and must be
+an external module added to the LMS.
+
+=== P.6 Risks and mitigation analysis
+NOTE: We haven't identified any potential obstacles to meeting the schedule of P.4, and so give no measure for adapting the plan.
+
+=== P.7 Requirements process and report
+NOTE: We describe the requirements process, based on the PEGS approach.
+
+[[P.7-Process]]
+`P.7.{counter:p.7}` The project utilizes the PEGS approach to requirements. 
+Requirements are developed incrementally and allocated to one of the four books.
+[[P.7-Process]]
+`P.7.{counter:p.7}` The process is conducted in an agile way. 
+[[P.7-Process]]
+`P.7.{counter:p.7}` The team leader is the scrum master and PO Proxy. 
+[[P.7-Process]]
+`P.7.{counter:p.7}` The PO is a library manager.
+[[P.7-Process]]
+`P.7.{counter:p.7}` During the implementation phase whenever change or refinement of the
+requirements is detected, it should be carefully documented and
+confirmed with the stakeholders.

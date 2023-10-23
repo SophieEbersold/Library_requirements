@@ -38,13 +38,15 @@ In the following, we illustrate and discuss some of our choices, our hesitation,
 
 NOTE: This shows the advantage of having a well-organized set of requirements for developing any new project. The requirements specified in the four PEGS books below were used by a group of 4 students to develop the corresponding OLMS tool.
 
-
 == Content
 
-*link:#content[Content] link:#content[2]*
+link:#content[Content] 
+// link:#content[]*
 
-*link:#section-1[Goals] link:#section-1[4]*
+link:#section-1[Goals]  
+// link:#section-1[]*
 
+////
 ____
 link:#g.7-stakeholders-and-requirements-sources[G.1 Overall context and
 goals] link:#g.7-stakeholders-and-requirements-sources[4]
@@ -67,9 +69,12 @@ exclusions] link:#g.7-stakeholders-and-requirements-sources[4]
 link:#g.7-stakeholders-and-requirements-sources[G.7 Stakeholders and
 requirements sources] link:#g.7-stakeholders-and-requirements-sources[4]
 ____
+////
 
-*link:#environment[Environment] link:#environment[5]*
+link:#environment[Environment] 
+// link:#environment[5]*
 
+////
 ____
 link:#e.1-glossary[E.1 Glossary] link:#e.1-glossary[5]
 
@@ -83,9 +88,12 @@ link:#e.5-effects[E.5 Effects] link:#e.5-effects[5]
 
 link:#e.6-invariants[E.6 Invariants] link:#e.6-invariants[5]
 ____
+////
 
-*link:#system[System] link:#system[6]*
+link:#system[System] 
+// link:#system[6]*
 
+////
 ____
 link:#_4eykv23wps2i[S.1 Components] link:#_4eykv23wps2i[6]
 
@@ -100,9 +108,13 @@ link:#_c57sg6hqhi8t[S.5 Prioritization] link:#_c57sg6hqhi8t[6]
 link:#s.6-verification-and-acceptance-criteria[S.6 Verification and
 acceptance criteria] link:#s.6-verification-and-acceptance-criteria[6]
 ____
+////
 
-*link:#project[Project] link:#project[7]*
+link:#project[Project] 
+// link:#project[7]*
 
+
+////
 ____
 link:#p.1-roles-and-personnel[P.1 Roles]
 link:#p.1-roles-and-personnel[7]
@@ -124,6 +136,8 @@ analysis] link:#p.5-required-technology-elements[7]
 link:#p.7-requirements-process-and-report[P.7 Requirements process and
 report] link:#p.7-requirements-process-and-report[7]
 ____
+////
+
 
 == Goals
 

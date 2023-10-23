@@ -19,6 +19,8 @@ collaboration – by JMB
 
 |2023-10-19| Correct numbering - move some requirements from E section to S section - move some requirements from E.4 Asumptions to E.3 Constraints - add new asumption in E.4. - better specified some requirements - by SE
 
+|2023-10-23| Modify Table of content - Add precisions towards the development project that will start from the current specification (section context)- by SE
+
 | |
 
 | |
@@ -36,7 +38,7 @@ It uses the Asciidoc template available link:{github-io}/templates/asciidoc/book
 
 In the following, we illustrate and discuss some of our choices, our hesitation, and the benefit of using {method} in that software product.
 
-NOTE: This shows the advantage of having a well-organized set of requirements for developing any new project. The requirements specified in the four PEGS books below were used by a group of 4 students to develop the corresponding OLMS tool.
+NOTE: This shows the advantage of having a well-organized set of requirements for developing any new project. The requirements specified in the four PEGS books below is going to be used by a group of students to develop the corresponding online LMS tool.
 
 == Content
 

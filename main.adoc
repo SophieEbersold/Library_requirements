@@ -29,12 +29,13 @@ collaboration – by JMB
 
 As an attempt to illustrate the general purpose of {method} and to validate it on business systems, we have written the requirements for an online library management system.
 In the following we will consider the Library Management System as being the system under specification and the system to develop. 
+
 The Library Management System will also be called LMS in the following of this document.
 
-This document constitutes the requirements books of this system.
+This document constitutes the full version of the requirements books of this system.
 It follows the method presented in the {HandbookPDF}, specifying the requirements among four axes: Goals, Environment, System and Project.
+
 It uses the Asciidoc template available link:{github-io}/templates/asciidoc/book.adoc[here].
-// The full version is available on the link:[Requirements Handbook Library Web Site].
 
 In the following, we illustrate and discuss some of our choices, our hesitation, and the benefit of using {method} in that software product.
 

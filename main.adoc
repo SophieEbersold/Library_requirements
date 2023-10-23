@@ -30,9 +30,9 @@ In the following we will consider the Library Management System as being the sys
 The Library Management System will also be called LMS in the following of this document.
 
 This document constitutes the requirements books of this system.
-It follows the method presented in the {HandbookPDF}.
+It follows the method presented in the {HandbookPDF}, specifying the requirements among four axes: Goals, Environment, System and Project.
 It uses the Asciidoc template available link:{github-io}/templates/asciidoc/book.adoc[here].
-The full version is available on the link:[Requirements Handbook Library Web Site].
+// The full version is available on the link:[Requirements Handbook Library Web Site].
 
 In the following, we illustrate and discuss some of our choices, our hesitation, and the benefit of using {method} in that software product.
 

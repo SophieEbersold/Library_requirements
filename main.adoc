@@ -21,6 +21,8 @@ collaboration – by JMB
 
 |2023-10-23| Modify Table of content - Add precisions towards the development project that will start from the current specification (section context)- by SE
 
+|2023-10-24| Add an assumption about librarians accounts - by SE`
+
 | |
 
 | |
@@ -424,7 +426,8 @@ NOTE: Below are some properties of the environment that may be assumed, to facil
 [[e4-education]]
 `E.4.{counter:e4}` The users are assumed to have basic knowledge of computers and Internet browsing.
 
-
+[[e4-accounts]]
+`E.4.{counter:e4}` Librarian accounts are supposed to be created outside the application
 
 === E.5 Effects
 NOTE: We have not found there any elements and properties of the environment that the system will affect. 
